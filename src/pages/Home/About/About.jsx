@@ -12,14 +12,25 @@ const About = () => {
           />
         </div>
         <div className="lg:w-1/2">
+          <h3 className="text-orange-500 my-10 text-3xl font-semibold">
+            About us
+          </h3>
           <h1 className="text-5xl font-bold">
             We are qualified <br /> & of experience <br /> in this field
           </h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+          <div className="p-5">
+            <p className="py-6 text-gray-400">
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which don't look even
+              slightly believable.
+            </p>
+            <p className="py-6 text-gray-400">
+              the majority have suffered alteration in some form, by injected
+              humour, or randomised words which don't look even slightly
+              believable.{" "}
+            </p>
+          </div>
           <button className="btn bg-orange-600 text-white">
             Get More Info
           </button>
