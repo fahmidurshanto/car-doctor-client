@@ -3,10 +3,84 @@ import img from "../../assets/images/login/login.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
+import { TiSocialFacebook, TiSocialLinkedin } from "react-icons/ti";
+import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  TwitterAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import auth from "../../Firebase/firebase.config";
+import { FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
-  console.log(createUser);
+  const { createUser, loading } = useContext(AuthContext);
+
+  // google sign in
+  const googleSignIn = () => {
+    const googleProvider = new GoogleAuthProvider();
+    signInWithPopup(auth, googleProvider).then((res) => {
+      const user = res.user;
+      if (user) {
+        toast(`${user.displayName} you are logged in successfully`);
+      }
+    });
+  };
+
+  // github login
+  const githubSignIn = () => {
+    loading;
+    const githubProvider = new GithubAuthProvider();
+    signInWithPopup(auth, githubProvider)
+      .then((res) => {
+        const user = res.user;
+        if (user) {
+          toast(`${user.displayName} you are logged in successfully`);
+        }
+      })
+      .catch((err) => {
+        const error = err.message;
+        if (error) {
+          toast.error(error);
+        }
+      });
+  };
+
+  //  Twitter login
+  const twitterSignIn = () => {
+    loading;
+    const twitterProvider = new TwitterAuthProvider();
+    signInWithPopup(auth, twitterProvider)
+      .then((res) => {
+        const user = res.user;
+        if (user) {
+          toast(`${user.displayName} you are logged in successfully`);
+        }
+      })
+      .catch((err) => {
+        const error = err.message;
+        if (error) {
+          toast.error(error);
+        }
+      });
+  };
+
+  // facebook login
+  const facebookSignIn = () => {
+    loading;
+    const facebookProvider = new FacebookAuthProvider();
+    signInWithPopup(auth, facebookProvider).then((res) => {
+      const user = res.user;
+      if (user) {
+        toast(`${user.displayName} you are logged in successfully`);
+      }
+    });
+  };
+
+  // sign up with email and password
   const handleSignUp = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -106,6 +180,25 @@ const SignUp = () => {
             </strong>{" "}
             here!
           </p>
+          <p className="text-center mb-3">Or Sign In with</p>
+          <div className="flex justify-center items-center gap-4 mb-5">
+            <FcGoogle
+              onClick={googleSignIn}
+              className="text-3xl cursor-pointer"
+            ></FcGoogle>
+            <FaGithub
+              onClick={githubSignIn}
+              className="text-3xl cursor-pointer"
+            ></FaGithub>
+            <TiSocialFacebook
+              onClick={facebookSignIn}
+              className="text-3xl text-blue-700 cursor-pointer"
+            ></TiSocialFacebook>
+            <FaXTwitter
+              onClick={twitterSignIn}
+              className="text-3xl  cursor-pointer"
+            ></FaXTwitter>
+          </div>
         </div>
       </div>
     </div>
