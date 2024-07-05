@@ -60,7 +60,7 @@ const About = () => {
           <h2 className="text-2xl font-bold text-center my-10">
             More Than Just Repairs
           </h2>
-          <p className="text-gray-500 text-justify">
+          <p className="text-gray-800 text-justify font-bold">
             At Car Doctor, we offer a wide range of services to keep your car
             running smoothly, including:
           </p>

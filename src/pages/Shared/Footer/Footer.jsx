@@ -7,7 +7,7 @@ const Footer = () => {
         <p>
           Car Doctor Services Ltd.
           <br />
-          Providing reliable car since 1992
+          Providing reliable car service solution since 1992.
         </p>
       </aside>
       <nav>
